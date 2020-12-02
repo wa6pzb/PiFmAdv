@@ -588,7 +588,7 @@ int tx(uint32_t carrier_freq, int divider, char *audio_file, int rds, uint16_t p
 		}
 	}
 
-	printf("Starting to transmit on %3.1f MHz.\n", carrier_freq/1e6);
+	printf("Starting to transmit on %3.3f MHz.\n", carrier_freq/1e6);
 
 	double deviation_scale_factor =  0.1 * (divider*(deviation*1000)/(CLOCK_BASE/((double)(1<<20))));
 
@@ -638,7 +638,7 @@ int main(int argc, char **argv) {
 
 	char *audio_file = NULL;
 	char *control_pipe = NULL;
-	uint32_t carrier_freq = 87600000;
+	uint32_t carrier_freq = 144390000;
     	int rds = 1;
 	int alternative_freq[100] = {};
 	int af_size = 0;
@@ -703,8 +703,7 @@ int main(int argc, char **argv) {
 
 			case 'f': //freq
 				carrier_freq = 1e6 * atof(optarg);
-				if(carrier_freq < 76e6 || carrier_freq > 108e6)
-					warn("Frequency should be in megahertz between 76.0 and 108.0, but is %f MHz\n", atof(optarg));
+				warn("Frequency %.3f MHz\n", atof(optarg));
 				break;
 
 			case 'd': //dev

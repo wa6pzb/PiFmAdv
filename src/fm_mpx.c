@@ -157,14 +157,14 @@ int fm_mpx_get_samples(double *mpx_buffer, double *rds_buffer, float mpx, int rd
 						return -1;
 					}
 					if(audio_len == 0) {
-						if( sf_seek(inf, 0, SEEK_SET) < 0 ) {
-							if(wait) {
-								return 0;
-							} else {
-								fprintf(stderr, "Could not rewind in audio file, terminating\n");
+						//if( sf_seek(inf, 0, SEEK_SET) < 0 ) {
+						//	if(wait) {
+						//		return 0;
+						//	} else {
+								fprintf(stderr, "Did not rewind audio file, terminating\n");
                                                         	return -1;
-							}
-						}
+						//	}
+						//}
 					} else {
 						//apply preemphasis
 						int k;
