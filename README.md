@@ -1,5 +1,9 @@
-PiFmAdv
-=========
+PiFmAdv_APRS
+============
+
+## This is a slightly modified version of PiFmAdv
+
+The (KA9CQL) modification is optimized for the 2 meter APRS frequency and will not loop the WAV file that it is playing. It will play it only once and stop transmitting. This making using it from scripts very easy.
 
 
 ## FM-RDS transmitter using the Raspberry Pi
